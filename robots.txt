@@ -1,0 +1,17 @@
+# radioVET: web je otevřený vyhledávačům i AI asistentům, ať kliniky najdou odpověď i přes ně
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.radiovet.cz/sitemap.xml

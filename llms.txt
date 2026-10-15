@@ -1,0 +1,31 @@
+# radioVET
+
+> Teleradiologie pro veterinární kliniky v Česku a na Slovensku. Popisy RTG a CT od veterinárního radiologa MVDr. Ladislava (Laca) Stehlíka, Ph.D. Česky nebo slovensky a ke každému popisu se dá radiologovi zavolat.
+
+## Služby
+
+- Popisy RTG a CT (teleradiologie): klinika pošle snímky přes PACS se žádankou a klinickou otázkou, zprávu dostane odkazem e-mailem. Číslo na radiologa je v patě každé zprávy.
+- Workshopy zobrazovacích metod přímo na klinice, s jejím přístrojem. Za sebou 65 workshopů v ČR a SR.
+- Zobrazkár: zdarma newsletter a blog o zobrazovacích metodách pro veterinární lékaře a sestry, https://zobrazkar.cz
+
+## Jak vypadá zpráva
+
+Struktura podle konsenzu ACVR a ECVDI. Zpráva je promptní, cílená na otázku ze žádanky, srozumitelná a akční: pomůže rozhodnout o dalším kroku.
+
+## Pro koho
+
+Veterinární kliniky v ČR a SR. Fakturace klinice, ne majiteli zvířete.
+
+## Lhůta a cena
+
+[Doplní radioVET: běžná a akutní lhůta, cena od a co v ní je.]
+
+## Kvalifikace
+
+MVDr. a Ph.D. z VFU Brno. Od roku 2005 v zobrazovací diagnostice, 17 let na Oddělení zobrazovacích metod Kliniky chorob psů a koček VETUNI Brno (výuka radiologie, ultrazvuku a CT). Stáž u prof. Massima Vignoliho (Dip. ECVDI). Člen KVL ČR, č. 6606.
+
+## Kontakt
+
+- E-mail: laco@radiovet.cz
+- Web: https://www.radiovet.cz/
+- LinkedIn: https://www.linkedin.com/in/ladislavstehlik/
