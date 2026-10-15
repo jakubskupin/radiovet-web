@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>radioVET | Popisy RTG a CT pro veterinární kliniky</title>
+<meta name="description" content="Popisy RTG a CT pro veterinární kliniky v ČR a SR od radiologa Laca Stehlíka. Česky nebo slovensky a k popisu mi můžete zavolat.">
+<link rel="preload" href="fonts/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/Montserrat-Regular.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/Montserrat-Medium.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/Montserrat-SemiBold.woff2) format('woff2')}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Montserrat-Bold.woff2) format('woff2')}
+@font-face{font-family:'Bebas Neue';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/BebasNeue-Regular.woff2) format('woff2')}
+:root{--o:#DF6A2F;--o2:#E7773D;--bg:#050505;--t:#F4F4F2;--t2:#B4AFAB;--t3:#7C7773;--ln:rgba(255,255,255,.1);--sv:#E6E6E6;--ink:#111;
+  --h:'Bebas Neue',sans-serif;--b:'Montserrat',sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--t);font-family:var(--b);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:16px;position:relative}
+@media(min-width:768px){.wrap{padding-inline:40px}}
+@media(min-width:1200px){.wrap{padding-inline:56px}}
+.ph{color:var(--t3)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ===== Společné prvky ===== */
+.eb{font:600 11px/1 var(--b);letter-spacing:.24em;text-transform:uppercase;color:var(--t2);display:flex;gap:12px;align-items:center}
+.eb:before{content:"";width:7px;height:7px;background:var(--o);flex:none}
+.h2{font:400 clamp(52px,7.2vw,108px)/.9 var(--h);margin:18px 0 0;letter-spacing:.005em}
+.kp{margin:18px 0 0;font-size:clamp(18px,1.6vw,22px);line-height:1.4;font-weight:500;color:var(--t2)}
+.kp b{color:var(--t);font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--o);color:#0A0A0A;font-weight:700;font-size:16px;line-height:1.1;padding:18px 26px;text-decoration:none;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(223,106,47,.32);background:var(--o2)}
+.btn svg{width:18px;height:18px;flex:none}
+.lnk{color:var(--t);font-weight:500;text-decoration:none;border-bottom:1px solid var(--o);padding-bottom:3px;transition:color .2s}
+.lnk:hover{color:#fff}
+.hl{position:absolute;pointer-events:none}
+.hl i{position:absolute;width:var(--a,24px);height:var(--a,24px);border:var(--w,3px) solid var(--o)}
+.hl i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}.hl i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
+.hl i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.hl i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
+.tag{display:inline-block;background:var(--o);color:#0B0B0B;font:700 13px/1.2 var(--b);letter-spacing:.06em;padding:8px 12px;text-transform:uppercase;white-space:nowrap}
+
+/* ===== Navigace ===== */
+.nav{position:sticky;top:0;z-index:60;height:72px;margin-bottom:-72px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 16px;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+@media(min-width:768px){.nav{padding:0 40px}}
+@media(min-width:1200px){.nav{padding:0 56px}}
+.nav.sc{background:rgba(5,5,5,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom-color:var(--ln)}
+.nav-logo img{width:122px;height:auto}
+.nav-l{display:none;gap:26px;font-size:13px;font-weight:600}
+.nav-l a{text-decoration:none;color:var(--t2);transition:color .2s}.nav-l a:hover{color:var(--t)}
+@media(min-width:1100px){.nav-l{display:flex}}
+.nav-r{display:flex;gap:20px;align-items:center;font-size:13px;font-weight:600}
+.nav-r .pr{display:none;text-decoration:none;color:var(--t2)}
+@media(min-width:900px){.nav-r .pr{display:inline}}
+.nav .btn{padding:11px 16px;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+
+/* ===== Hero (vzhled 18.1) ===== */
+.hero{position:relative;--s:1}
+.hero-vis{position:relative;overflow:hidden;background:var(--bg)}
+.stage{position:absolute;left:0;top:0;width:1440px;height:800px;transform-origin:0 0;cursor:none;touch-action:pan-y}
+.stage .ab{position:absolute}
+.st-film{left:0;top:-88px;width:1440px;height:976px;background:url(img/hero/snimek.jpg) center/100% 100% no-repeat}
+.st-dim{opacity:.36}
+.st-shade{left:500px;top:0;width:940px;height:800px;background:linear-gradient(270deg,rgba(5,5,5,.82) 0,rgba(5,5,5,.55) 60%,rgba(5,5,5,0) 100%)}
+.st-shade2{left:0;top:600px;width:1440px;height:200px;background:linear-gradient(rgba(5,5,5,0),rgba(5,5,5,.9))}
+.st-laco{left:0;top:20px;width:640px;height:800px;background:url(img/hero/laco-svetlo.png) center/100% 100% no-repeat}
+.st-blk{left:0;top:0;width:1440px;height:800px;background:#0A0A0A;opacity:0;transition:opacity .25s}
+.st-xr{left:0;top:20px;width:640px;height:800px;background:url(img/hero/laco-rentgen.jpg) center/100% 100% no-repeat;opacity:0;transition:opacity .25s;-webkit-mask-image:linear-gradient(#000 0,#000 455px,transparent 515px),url(img/hero/laco-maska.png);-webkit-mask-size:100% 800px,100% 100%;-webkit-mask-repeat:no-repeat;-webkit-mask-composite:source-in;mask-image:linear-gradient(#000 0,#000 455px,transparent 515px),url(img/hero/laco-maska.png);mask-size:100% 800px,100% 100%;mask-repeat:no-repeat;mask-composite:intersect}
+.st-xrw{background-image:url(img/hero/laco-rentgen-mrk2.png);transition:none}
+.lens{left:0;top:0;width:240px;height:240px;overflow:hidden;pointer-events:none;outline:1px solid rgba(255,255,255,.3);z-index:3;opacity:0;transition:opacity .25s}
+.lens-in{position:absolute;left:0;top:0;width:1440px;height:800px;background:#050505}
+.lens .hl{inset:-1px}
+.lens-dot{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px}
+.lens-dot:before,.lens-dot:after{content:"";position:absolute;background:var(--o)}.lens-dot:before{left:6px;top:0;width:2px;height:14px}.lens-dot:after{top:6px;left:0;height:2px;width:14px}
+.st-find{left:590px;top:488px;width:220px;height:220px;opacity:0;transition:opacity .3s;z-index:4;--a:30px;--w:4px}
+.st-tag{position:absolute;opacity:0;transition:opacity .25s;z-index:4;pointer-events:none;font-size:18px;padding:10px 14px;letter-spacing:.05em}
+.st-cap{left:590px;top:404px;width:300px;font:500 13px/1.45 var(--b);color:#E9E5E2;opacity:0;transition:opacity .3s;z-index:4;pointer-events:none}
+.stage .on{opacity:1}
+.st-jm{left:144px;top:664px;border-left:3px solid var(--o);padding-left:14px;z-index:5;pointer-events:none}
+.st-jm b{display:flex;gap:10px;align-items:center;font-size:26px;font-weight:600;line-height:1.15}
+.st-jm b svg{width:22px;height:22px}
+.st-jm span{display:block;margin-top:8px;font-size:17px;font-weight:500;color:#C9C3BF}
+.hero-txt{position:absolute;left:0;top:0;width:100%;z-index:6;pointer-events:none}
+.hero-txt .cta{pointer-events:auto}
+.hero h1{position:absolute;right:calc(56px*var(--s));text-align:right;top:calc(150px*var(--s));margin:0;font:400 calc(116px*var(--s))/.88 var(--h);letter-spacing:.005em}
+.hero h1 span{display:block}.hero h1 .s{color:#7A736F}
+.h-sub{position:absolute;right:calc(56px*var(--s));text-align:right;top:calc(476px*var(--s));font-size:calc(28px*var(--s));font-weight:500;line-height:1.2}
+.zv{position:relative;display:inline-block;padding:.12em .26em;margin:0 .04em;color:var(--o);font-weight:600}
+.zv .hl{inset:0;--a:.34em;--w:3px}
+.hero .cta{position:absolute;right:calc(56px*var(--s));top:calc(564px*var(--s))}
+.hero .cta .btn{font-size:calc(16px*var(--s));padding:calc(18px*var(--s)) calc(24px*var(--s))}
+.h-mikro{position:absolute;right:calc(56px*var(--s));text-align:right;top:calc(646px*var(--s));width:calc(560px*var(--s));font-size:calc(14px*var(--s));line-height:1.5;font-weight:500;color:#D6D1CE}
+@media(max-width:759px){
+  .hero{display:flex;flex-direction:column}
+  .hero-txt{position:relative;padding:104px 16px 18px;order:-1}
+  .hero h1,.h-sub,.hero .cta,.h-mikro{position:static;width:auto;text-align:left}
+  .hero h1{font-size:clamp(56px,17vw,76px)}
+  .h-sub{font-size:20px;margin-top:14px}
+  .hero .cta{margin-top:24px}
+  .hero .cta .btn{font-size:16px;padding:17px 22px}
+  .h-mikro{font-size:13px;margin-top:14px}
+  .st-jm{border-left-width:calc(2px / var(--s));padding-left:calc(8px / var(--s));top:600px;left:72px}
+  .st-jm b{white-space:nowrap;font-size:calc(15px / var(--s))}.st-jm b svg{display:none}
+  .st-jm span{font-size:calc(12px / var(--s));margin-top:calc(4px / var(--s))}
+  .st-tag{font-size:calc(11px / var(--s));padding:calc(6px / var(--s)) calc(8px / var(--s))}
+  .st-cap{display:none}
+}
+
+/* pás důkazů */
+.pp{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);position:relative;background:var(--bg)}
+.pp-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pp-g div{padding:22px 14px 22px 0}
+.pp-g div:nth-child(n+3){border-top:1px solid var(--ln)}
+@media(min-width:960px){.pp-g{grid-template-columns:repeat(4,minmax(0,1fr))}.pp-g div{padding:30px 22px;border-left:1px solid var(--ln)}.pp-g div:nth-child(n+3){border-top:0}.pp-g div:first-child{border-left:0;padding-left:0}}
+.pp-g b{display:block;font:400 clamp(34px,3.4vw,48px)/.95 var(--h)}
+.pp-g span{display:block;margin-top:8px;font-size:13px;line-height:1.4;color:var(--t2);font-weight:500;max-width:200px}
+
+
+/* ===== Zpráva (rozbalení pod krokem 03) ===== */
+.kr-more{margin-top:16px}
+.kr-more summary{list-style:none;cursor:pointer;display:inline-flex;gap:10px;align-items:center;font-size:14px;font-weight:600;color:var(--t);border-bottom:1px solid var(--o);padding-bottom:3px;transition:color .2s}
+.kr-more summary::-webkit-details-marker{display:none}
+.kr-more summary:after{content:"";width:11px;height:11px;flex:none;background:linear-gradient(var(--o),var(--o)) center/11px 2px no-repeat,linear-gradient(var(--o),var(--o)) center/2px 11px no-repeat;transition:transform .3s}
+.kr-more[open] summary:after{transform:rotate(45deg)}
+.kr-zp{margin-top:22px;padding:22px 0 4px 22px;border-left:1px solid rgba(255,255,255,.18)}
+.kr-zp-k{margin:0 0 16px;font-size:16px;line-height:1.5;font-weight:500;color:var(--t2)}.kr-zp-k b{color:var(--t)}
+.zp-l{list-style:none;margin:0;padding:0;border-top:1px solid var(--ln)}
+.zp-l li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:11px 0;border-bottom:1px solid var(--ln);font-size:14px;line-height:1.5;color:var(--t2)}
+.zp-l b{color:var(--t);font-weight:600}.zp-l li:last-child b{color:var(--o)}
+@media(max-width:600px){.zp-l li{grid-template-columns:1fr;gap:2px}}
+.tym{margin:26px 0 0;font:400 clamp(30px,2.8vw,40px)/.95 var(--h);color:var(--t)}
+.tym span{color:var(--o)}
+.cit{margin:14px 0 0;padding:0 0 0 18px;border-left:3px solid var(--o);font-size:15px;line-height:1.6;color:var(--t)}
+.cit cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--t3)}
+.ne{margin:18px 0 0;font-size:13px;color:var(--t3);line-height:1.6}
+.ne s{color:var(--t2);text-decoration-color:var(--o);text-decoration-thickness:2px}
+
+/* ===== Jak to funguje (svisle) ===== */
+.kr{padding:clamp(72px,10vw,140px) 0;border-top:1px solid var(--ln)}
+/* pozadí sekce Otázky: ztlumený rentgen páteře jako nálada čtecí místnosti, drží se v okně po celou dobu sekce (návrh 10. 10. 2026) */
+.ot{position:relative;overflow:hidden}
+.ot > .wrap{position:relative;z-index:1}
+.sbg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.sbg i{position:absolute;left:0;top:0;bottom:0;display:block;width:min(64vw,880px);background:url(img/web/pozadi-pater.jpg) 20% 40%/cover no-repeat;filter:grayscale(.72) brightness(.82) contrast(1.25);opacity:.62;
+ -webkit-mask-image:radial-gradient(120% 95% at 10% 50%,#000 40%,transparent 82%),linear-gradient(transparent 0,#000 22%,#000 72%,transparent 100%);-webkit-mask-composite:source-in;
+ mask-image:radial-gradient(120% 95% at 10% 50%,#000 40%,transparent 82%),linear-gradient(transparent 0,#000 22%,#000 72%,transparent 100%);mask-composite:intersect}
+@media(max-width:979px){.sbg i{width:100%;opacity:.38}}
+.bez-pozadi .sbg{display:none}
+.kr-g{display:grid;gap:44px}
+@media(min-width:980px){.kr-g{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px}.kr-hd{position:sticky;top:120px;align-self:start}}
+.kr-l{list-style:none;margin:0;padding:0}
+.kr-l > li{position:relative;display:grid;grid-template-columns:64px minmax(0,1fr);gap:0 26px;padding:0 0 52px}
+.kr-l > li:last-child{padding-bottom:0}
+.kr-l > li:before{content:"";position:absolute;left:31.5px;top:64px;bottom:0;width:1px;background:var(--ln);transition:background .5s}
+.kr-l > li:last-child:before{display:none}
+.kr-l > li > .n{width:64px;height:64px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);font:400 26px/1 var(--h);letter-spacing:.04em;color:var(--t3);transition:color .5s,border-color .5s,background .5s}
+.kr-l > li h3{margin:8px 0 0;font:400 clamp(36px,3.6vw,54px)/.95 var(--h);color:#6F6A66;transition:color .5s}
+.kr-l > li > div > p{margin:12px 0 0;font-size:16px;line-height:1.6;color:var(--t3);max-width:44ch;transition:color .5s}
+.kr-l > li.on > .n{color:var(--t);border-color:var(--t)}
+.kr-l > li.on h3{color:var(--t)}.kr-l > li.on > div > p{color:var(--t2)}
+.kr-l > li.on:before{background:rgba(255,255,255,.45)}
+.kr-l > li.on:last-child > .n{background:var(--o);border-color:var(--o);color:#0A0A0A}
+.kr-l > li.on:last-child h3{color:var(--o)}
+
+/* ===== Služby (světlá) ===== */
+.sl{padding:clamp(72px,10vw,140px) 0;background:var(--sv);color:var(--ink)}
+.sl .eb{color:#4D4D4D}
+.sl .kp{color:#4A4A4A}.sl .kp b{color:var(--ink)}
+.sl .ph{color:#8A8A8A}
+.sl-g{display:grid;gap:16px;margin-top:48px}
+@media(min-width:900px){.sl-g{grid-template-columns:minmax(0,1.15fr) minmax(0,1.15fr) minmax(0,.85fr)}}
+.karta{position:relative;border:1px solid rgba(0,0,0,.12);background:#F7F7F6;padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;min-height:340px;transition:transform .35s ease,border-color .35s,box-shadow .35s}
+.karta:hover{transform:translateY(-4px);border-color:rgba(223,106,47,.8);box-shadow:0 22px 60px rgba(223,106,47,.18)}
+.karta .k-n{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#6A6A6A}
+.karta h3{margin:18px 0 0;font:400 clamp(38px,3.4vw,52px)/.92 var(--h);color:var(--ink)}
+.karta p{margin:14px 0 0;font-size:15px;line-height:1.6;color:#3B3B3B}
+.karta .meta{margin-top:auto;padding-top:24px;font-size:13px;color:#666;border-top:1px solid rgba(0,0,0,.12)}
+.karta .k-cta{margin-top:18px}
+.karta .lnk{color:var(--ink)}
+.karta.k1{background:var(--o);border-color:var(--o);color:#0A0A0A}
+.karta.k1:hover{border-color:var(--o);box-shadow:0 22px 60px rgba(223,106,47,.4)}
+.k1 .k-n,.k1 h3{color:#0A0A0A}.k1 p{color:#1E1E1E}
+.k1 .meta{color:#2A2A2A;border-top-color:rgba(0,0,0,.22)}.k1 .ph{color:rgba(0,0,0,.55)}
+.k1 .btn{background:#0A0A0A;color:#fff}.k1 .btn:hover{background:#222;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.karta.zb{background:transparent;border-color:rgba(0,0,0,.2)}
+.karta.zb h3{font-family:var(--b);font-weight:700;font-size:28px;letter-spacing:-.01em;line-height:1.1}
+
+/* ===== Otázky ===== */
+.ot{padding:clamp(64px,8vw,110px) 0}
+.ot .h2{font-size:clamp(38px,4vw,60px);margin-top:14px}
+.ot-g{display:grid;gap:36px}
+@media(min-width:980px){.ot-g{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:64px}}
+.ot details{border-bottom:1px solid var(--ln)}
+.ot details:first-child{border-top:1px solid var(--ln)}
+.ot summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:17px 0;font-size:16px;font-weight:600;color:var(--t2);transition:color .2s}
+.ot summary::-webkit-details-marker{display:none}
+.ot summary:hover,.ot details[open] summary{color:var(--t)}
+.ot summary:after{content:"";width:12px;height:12px;flex:none;background:linear-gradient(var(--o),var(--o)) center/12px 2px no-repeat,linear-gradient(var(--o),var(--o)) center/2px 12px no-repeat;transition:transform .3s}
+.ot details[open] summary:after{transform:rotate(45deg)}
+.ot details p{margin:0;padding:0 40px 18px 0;font-size:14.5px;line-height:1.65;color:var(--t2)}
+
+/* ===== Závěr ===== */
+.zav{padding:clamp(80px,11vw,150px) 0 clamp(72px,9vw,120px);border-top:1px solid var(--ln)}
+.zav-g{display:grid;gap:40px;align-items:center}
+@media(min-width:980px){.zav-g{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px}}
+.zav .h2{font-size:clamp(60px,8.4vw,128px)}
+.zav-cta{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:36px}
+.zav-kon{margin-top:22px;font-size:14px;color:var(--t2);line-height:1.7}
+.zav-kon b{color:var(--t);font-weight:600}
+.por{position:relative;max-width:440px;width:100%;margin-inline:auto}
+.por>img{width:100%;height:auto}
+.podpis{position:relative;width:92%;margin:4px 0 0 auto;container-type:inline-size;transform:rotate(-3deg)}
+.podpis img{width:100%;height:auto;filter:drop-shadow(0 0 .45px #DF6A2F)}
+.por-jm{margin-top:16px;padding-left:14px;border-left:3px solid var(--o);font-size:14px;color:var(--t2)}
+.por-jm b{display:block;color:var(--t);font-size:17px;font-weight:600}
+
+/* ===== Patička ===== */
+.pata{border-top:1px solid var(--ln);padding:40px 0 48px;font-size:13px;color:var(--t3);line-height:1.7}
+.pata-g{display:grid;gap:24px}
+@media(min-width:900px){.pata-g{grid-template-columns:1.2fr 1fr 1fr 1fr}}
+.pata img{width:110px;height:auto;margin-bottom:12px}
+.pata b{color:var(--t2);font-weight:600;display:block}
+.pata a{text-decoration:none;color:var(--t2)}.pata a:hover{color:var(--t)}
+.pata-jm{display:flex!important;gap:10px;align-items:center}.pata-li{display:inline-flex;color:var(--t)!important;transition:color .2s ease,transform .2s ease}.pata-li:hover{color:var(--o)!important;transform:translateY(-1px)}.pata-li svg{width:20px;height:20px}
+</style></head><body>
+
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="#top"><img src="img/hero/wordmark-radiovet-bily.png" alt="radioVET" width="448" height="88"></a>
+  <div class="nav-l"><a href="#jak">Jak to funguje</a><a href="#sluzby">Služby</a><a href="#otazky">Otázky</a></div>
+  <div class="nav-r"><a class="pr" href="#top">Přihlásit</a><a class="btn" href="#zaver">Poslat snímek</a></div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-vis" id="heroVis">
+    <div class="stage" id="stage">
+      <div class="ab st-film st-dim"></div>
+      <div class="ab st-shade"></div>
+      <div class="ab st-laco"></div>
+      <div class="ab st-shade2"></div>
+      <div class="ab lens" id="lens"><div class="lens-in" id="lensIn"><div class="ab st-film"></div><div class="ab st-blk" id="blk"></div><div class="ab st-laco"></div><div class="ab st-xr" id="xr"></div><div class="ab st-xr st-xrw" id="xrw"></div></div><div class="hl"><i></i><i></i><i></i><i></i></div><div class="lens-dot"></div></div>
+      <div class="ab hl st-find" id="find"><i></i><i></i><i></i><i></i></div>
+      <div class="tag st-tag" id="tagFind" style="left:590px;top:716px">Volná tekutina</div>
+      <div class="ab st-cap" id="cap">Vymizelý detail. V&nbsp;břišní dutině je volná tekutina, která nahradila opacitu tuku na&nbsp;snímku.</div>
+      <div class="tag st-tag" id="tagLaco" style="left:120px;top:518px">Našli jste radiologa</div>
+      <div class="ab st-jm"><b>MVDr. Laco Stehlík, Ph.D. <svg viewBox="0 0 256 256" fill="#fff" aria-label="LinkedIn"><path d="M216 24H40a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16ZM96 176a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm-8-80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Zm96 80a8 8 0 0 1-16 0v-36a20 20 0 0 0-40 0v36a8 8 0 0 1-16 0v-64a8 8 0 0 1 15.79-1.78A36 36 0 0 1 184 140Z"/></svg></b><span>veterinární radiolog</span></div>
+    </div>
+  </div>
+  <div class="hero-txt" id="heroTxt">
+    <h1><span>Popisy RTG a&nbsp;CT</span><span class="s">pro veterinární</span><span class="s">kliniky</span></h1>
+    <div class="h-sub">Od <span class="zv">radiologa<span class="hl"><i></i><i></i><i></i><i></i></span></span>, kterého se doptáte</div>
+    <div class="cta"><a class="btn" href="#zaver">Poslat první snímek<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="h-mikro">K&nbsp;popisu mi zavolejte: <span class="ph">+420 XXX XXX XXX</span><br>Odpověď do&nbsp;<span class="ph">[lhůta doplní Laco]</span>, cena od&nbsp;<span class="ph">[doplní Laco]</span></div>
+  </div>
+</section>
+
+<div class="pp"><div class="wrap pp-g">
+  <div><b>Od&nbsp;2005</b><span>v&nbsp;zobrazovací diagnostice</span></div>
+  <div><b>17&nbsp;let</b><span>na&nbsp;VETUNI Brno, Oddělení zobrazovacích metod</span></div>
+  <div><b>65</b><span>workshopů na&nbsp;klinikách v&nbsp;ČR a&nbsp;SR</span></div>
+  <div><b>CZ i&nbsp;SK</b><span>česky i&nbsp;slovensky, s&nbsp;telefonem k&nbsp;popisu</span></div>
+</div></div>
+
+
+
+
+<section class="kr" id="jak"><div class="wrap kr-g">
+  <div class="kr-hd rv">
+    <div class="eb">Jak to funguje</div>
+    <h2 class="h2">Od snímku k&nbsp;odpovědi</h2>
+    <p class="kp">Snímek, žádanka, zpráva. <b>Pak se doptáte.</b></p>
+  </div>
+  <ol class="kr-l" id="krL">
+    <li><div class="n">01</div><div><h3>Registrace kliniky</h3><p>Kliniku jednou zaregistrujete a&nbsp;dostanete přístup k&nbsp;žádance a&nbsp;ceníku.</p></div></li>
+    <li><div class="n">02</div><div><h3>Snímky a&nbsp;žádanka</h3><p>Snímky pošlete přes PACS, k&nbsp;nim žádanku s&nbsp;klinickou otázkou.</p></div></li>
+    <li><div class="n">03</div><div><h3>Zpráva e-mailem</h3><p>Hotovou zprávu dostanete odkazem e-mailem.</p>
+      <details class="kr-more"><summary>Jak vypadá moje zpráva</summary>
+        <div class="kr-zp">
+          <p class="kr-zp-k">Struktura podle konsenzu ACVR a&nbsp;ECVDI. <b>Odpovídá na&nbsp;vaši otázku.</b></p>
+          <ul class="zp-l">
+            <li><b>Promptní</b>přijde včas, aby ovlivnila péči</li>
+            <li><b>Cílená</b>odpovídá na&nbsp;otázku, kterou jste položili v&nbsp;žádance</li>
+            <li><b>Srozumitelná</b>jasná struktura, čitelná i&nbsp;při zpětném pohledu</li>
+            <li><b>Akční</b>pomůže rozhodnout o&nbsp;dalším kroku</li>
+            <li><b>K&nbsp;doptání</b>číslo na&nbsp;mě je v&nbsp;patě každé zprávy</li>
+          </ul>
+          <p class="tym">Radiolog a&nbsp;praktik <span>jsou tým</span></p>
+          <blockquote class="cit">„Čím přesnější informace radiolog dostane, tím kvalitnější bude výstup. A&nbsp;čím přehledněji radiolog zprávu napíše, tím lépe se podle ní rozhoduje.“<cite>Laco Stehlík, Zobrazkár</cite></blockquote>
+          <p class="ne">Takhle ne: <s>„k&nbsp;dalšímu posouzení doporučujeme zvážit další diagnostiku“</s></p>
+        </div>
+      </details></div></li>
+    <li><div class="n">04</div><div><h3>Doptáte se mě</h3><p>Něco nesedí? Zavolejte mi, číslo je v&nbsp;patě každé zprávy.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="sl" id="sluzby"><div class="wrap">
+  <div class="rv">
+    <div class="eb">Služby</div>
+    <h2 class="h2">Co pro kliniky dělám</h2>
+    <p class="kp">Dvě služby. <b>Jeden radiolog.</b></p>
+  </div>
+  <div class="sl-g">
+    <article class="karta k1 rv"><div class="k-n">01 · Teleradiologie</div><h3>Popisy RTG a&nbsp;CT</h3><p>Popíšu snímky z&nbsp;vaší kliniky česky nebo slovensky. Zpráva odpovídá na&nbsp;otázku ze&nbsp;žádanky a&nbsp;k&nbsp;popisu mi můžete zavolat.</p><div class="meta">Cena od&nbsp;<span class="ph">[doplní Laco]</span> · odpověď do&nbsp;<span class="ph">[lhůta]</span></div><div class="k-cta"><a class="btn" href="#zaver">Poslat první snímek</a></div></article>
+    <article class="karta rv"><div class="k-n">02 · Vzdělávání</div><h3>Workshopy na&nbsp;klinice</h3><p>Zobrazovací metody prakticky, přímo u&nbsp;vás na&nbsp;klinice. Za&nbsp;sebou mám 65 workshopů v&nbsp;ČR a&nbsp;SR.</p><div class="meta">Termín a&nbsp;téma domluvíme</div><div class="k-cta"><a class="lnk" href="#zaver">Domluvit workshop</a></div></article>
+    <article class="karta zb rv"><div class="k-n">Zdarma</div><h3>Zobrazkár</h3><p>Newsletter a&nbsp;blog o&nbsp;zobrazovacích metodách pro lékaře a&nbsp;sestry. K&nbsp;tomu e-book o&nbsp;artefaktech v&nbsp;ultrazvuku.</p><div class="meta"><a class="lnk" href="https://zobrazkar.cz">zobrazkar.cz</a></div></article>
+  </div>
+</div></section>
+
+<section class="ot" id="otazky"><div class="sbg" aria-hidden="true"><i></i></div><div class="wrap ot-g">
+  <div class="rv"><div class="eb">Otázky</div><h2 class="h2">Na co se kliniky ptají</h2></div>
+  <div class="rv">
+    <details><summary>Jak rychle dostanu popis?</summary><p class="ph">[Běžná a&nbsp;akutní lhůta, doplní Laco.]</p></details>
+    <details><summary>Kolik stojí jeden popis?</summary><p class="ph">[Cena a&nbsp;co v&nbsp;ní je: doptání, víc projekcí, víkend. Doplní Laco.]</p></details>
+    <details><summary>Co když nebudete k&nbsp;dispozici?</summary><p class="ph">[Zástup a&nbsp;dovolená, doplní Laco.]</p></details>
+    <details><summary>Můžu vám k&nbsp;popisu zavolat?</summary><p>Ano. Číslo je v&nbsp;patě každé zprávy. Popis spolu projdeme česky nebo slovensky.</p></details>
+    <details><summary>Komu fakturujete?</summary><p>Klinice, ne majiteli zvířete. <span class="ph">[ověří Laco]</span></p></details>
+    <details><summary>Jakou máte kvalifikaci?</summary><p>MVDr. a&nbsp;Ph.D. jsem získal na&nbsp;VFU Brno. Sedmnáct let jsem působil na&nbsp;Oddělení zobrazovacích metod Kliniky chorob psů a&nbsp;koček VETUNI Brno, kde jsem učil radiologii, ultrazvuk a&nbsp;CT. Stážoval jsem u&nbsp;prof. Massima Vignoliho (Dip. ECVDI).</p></details>
+  </div>
+</div></section>
+
+<section class="zav" id="zaver"><div class="wrap zav-g">
+  <div class="rv">
+    <div class="eb">Začněte jedním snímkem</div>
+    <h2 class="h2">Radiolog, kterého se doptáte</h2>
+    <p class="kp">Pošlete mi první snímek. <b>Pak mi zavolejte.</b></p>
+    <div class="zav-cta"><a class="btn" href="#zaver">Poslat první snímek<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="lnk" href="#zaver">Zavolat: <span class="ph">+420 XXX XXX XXX</span></a></div>
+    <p class="zav-kon">E-mail: <b>laco@radiovet.cz</b><br>Popisuji pro kliniky v&nbsp;Česku a&nbsp;na&nbsp;Slovensku.</p>
+  </div>
+  <div class="por rv">
+    <img src="img/web/profilovka-K15.jpg" alt="MVDr. Laco Stehlík, Ph.D., v lékařské haleně mezi rentgenovými stíny" width="1016" height="1016" loading="lazy">
+    <div class="podpis"><img src="img/web/podpis-stehlik.png" alt="Podpis Stehlík, místo čárky nad í je hledáček" width="515" height="189" loading="lazy"></div>
+    <div class="por-jm"><b>MVDr. Laco Stehlík, Ph.D.</b>veterinární radiolog</div>
+  </div>
+</div></section>
+
+<footer class="pata"><div class="wrap pata-g">
+  <div><img src="img/hero/wordmark-radiovet-bily.png" alt="radioVET" width="448" height="88">Teleradiologie pro veterinární kliniky v&nbsp;ČR a&nbsp;SR.</div>
+  <div><b class="pata-jm">MVDr. Laco Stehlík, Ph.D. <a class="pata-li" href="https://www.linkedin.com/in/ladislavstehlik/" aria-label="LinkedIn Laca Stehlíka"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216 24H40a16 16 0 0 0-16 16v176a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16ZM96 176a8 8 0 0 1-16 0v-64a8 8 0 0 1 16 0Zm-8-80a12 12 0 1 1 12-12 12 12 0 0 1-12 12Zm96 80a8 8 0 0 1-16 0v-36a20 20 0 0 0-40 0v36a8 8 0 0 1-16 0v-64a8 8 0 0 1 15.79-1.78A36 36 0 0 1 184 140Z"/></svg></a></b>veterinární radiolog<br>KVL ČR č.&nbsp;6606<br>IČO <span class="ph">[doplnit]</span></div>
+  <div><b>Kontakt</b><a href="mailto:laco@radiovet.cz">laco@radiovet.cz</a><br><span class="ph">+420 XXX XXX XXX</span><br><a href="#top">Přihlásit pro kliniky</a></div>
+  <div><b>Jinde</b><a href="https://www.linkedin.com/in/ladislavstehlik/">LinkedIn</a><br><a href="https://zobrazkar.cz">Zobrazkár</a></div>
+</div></footer>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const mobQ = matchMedia("(max-width:759px)");
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- hero: měřítko scény ----------
+  const hero = document.querySelector(".hero"), heroVis = $("heroVis"), stage = $("stage"), heroTxt = $("heroTxt");
+  let sc = 1;
+  function heroFit() {
+    const w = heroVis.clientWidth, mob = mobQ.matches;
+    sc = mob ? w / 880 : w / 1440;
+    stage.style.transform = `scale(${sc})`;
+    heroVis.style.height = 800 * sc + "px";
+    hero.style.setProperty("--s", sc.toFixed(4));
+    heroTxt.style.height = mob ? "auto" : 800 * sc + "px";
+  }
+  heroFit(); addEventListener("resize", heroFit); mobQ.addEventListener("change", heroFit);
+
+  // ---------- hero: hledáček (mechanika 18.1) ----------
+  const L = $("lens"), IN = $("lensIn"), F = $("find"), TF = $("tagFind"), CP = $("cap"), TL = $("tagLaco"), BK = $("blk"), XR = $("xr"), XW = $("xrw");
+  new Image().src = "img/hero/laco-rentgen-mrk2.png";
+  let naLacu = false, kolikrat = 0, mrk = 0, act = false, fresh = true;
+  const p = { x: 0, y: 0 }, cur = { x: 0, y: 0, w: 240, h: 240 };
+  const onLaco = (x, y) => (((x - 320) / 100) ** 2 + ((y - 245) / 115) ** 2 <= 1) || (x > 140 && x < 500 && y > 330 && y < 480);
+  const onFind = (x, y) => Math.hypot(x - 700, y - 598) < 120;
+  const leave = () => { act = false; fresh = true; L.style.opacity = 0; };
+  const ctas = [...document.querySelectorAll(".hero .cta .btn, .nav .btn")];
+  let uCta = false;
+  const blizko = (x, y) => ctas.some(b => { const r = b.getBoundingClientRect(), m = 70; return x > r.left - m && x < r.right + m && y > r.top - m && y < r.bottom + m; });
+  addEventListener("mousemove", e => { uCta = blizko(e.clientX, e.clientY); if (uCta) leave(); }, { passive: true });
+  const move = e => {
+    const r = stage.getBoundingClientRect(), q = e.touches ? e.touches[0] : e;
+    if (!e.touches && blizko(q.clientX, q.clientY)) { leave(); return; }
+    p.x = (q.clientX - r.left) / sc; p.y = (q.clientY - r.top) / sc;
+    if (p.y < 0 || p.y > 800 || p.x < 0 || p.x > 1440) { leave(); return; }
+    if (fresh) { cur.x = p.x; cur.y = p.y; fresh = false; }
+    act = true; L.style.opacity = 1;
+  };
+  heroVis.addEventListener("mousemove", move);
+  heroVis.addEventListener("touchmove", move, { passive: true }); heroVis.addEventListener("touchstart", move, { passive: true });
+  hero.addEventListener("mouseleave", leave); heroVis.addEventListener("touchend", leave);
+  const tick = () => {
+    const la = act && onLaco(p.x, p.y), T = la ? { x: 320, y: 285, w: 400, h: 450 } : { x: p.x, y: p.y, w: 240, h: 240 };
+    cur.x += (T.x - cur.x) * .25; cur.y += (T.y - cur.y) * .25; cur.w += (T.w - cur.w) * .18; cur.h += (T.h - cur.h) * .18;
+    const lx = cur.x - cur.w / 2, ly = cur.y - cur.h / 2;
+    L.style.left = lx + "px"; L.style.top = ly + "px"; L.style.width = cur.w + "px"; L.style.height = cur.h + "px";
+    IN.style.transform = `translate(${-lx}px,${-ly}px)`;
+    if (la && !naLacu) { kolikrat++; if (kolikrat === 2) mrk = performance.now() + 550; }
+    naLacu = la;
+    const tm = performance.now() - mrk;
+    XW.style.opacity = (la && mrk > 0) ? (tm < 0 ? 0 : tm < 60 ? tm / 60 : tm < 170 ? 1 : tm < 260 ? 1 - (tm - 170) / 90 : 0) : 0;
+    const fd = act && !la && onFind(cur.x, cur.y);
+    [F, TF, CP].forEach(e => e.classList.toggle("on", fd));
+    [BK, XR, TL].forEach(e => e.classList.toggle("on", la));
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+
+
+  // ---------- jak to funguje ----------
+  const krL = [...document.querySelectorAll("#krL > li")];
+  const krUpd = () => krL.forEach(li => li.classList.toggle("on", li.getBoundingClientRect().top < innerHeight * .68));
+
+  // ---------- navigace, scroll, vstupy ----------
+  const nav = $("nav");
+  const onScroll = () => { nav.classList.toggle("sc", scrollY > 40); krUpd(); };
+  addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll();
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach(el => io.observe(el));
+})();
+</script>
+</body></html>
