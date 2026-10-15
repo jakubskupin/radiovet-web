@@ -39,6 +39,8 @@ Sekce stránky: navigace, hero (`#top`), pás údajů, Jak to funguje (`#jak`), 
 - JSON-LD v hlavičce: `VeterinaryCare` (radioVET, služby, oblast ČR a SR, jazyky), `Person` (Laco, kvalifikace, LinkedIn a Zobrazkár), `WebSite` a `FAQPage`. Ve FAQ jsou jen otázky s vyplněnou odpovědí.
 - `robots.txt` povoluje vyhledávače i AI asistenty (GPTBot, ClaudeBot, PerplexityBot, Google-Extended a další), ať kliniky najdou odpověď i přes ně.
 - `llms.txt` shrnuje službu, postup, kvalifikaci a kontakt v jednom textu.
+- Klíčové pojmy ve struktuře: „veterinární teleradiologie“ a „popisy RTG a CT“ v titulku a popisu, „Popisy RTG a CT pro veterinární kliniky“ v H1, „teleradiologie“, „na dálku“ a „veterinární kliniky“ v nadpisech sekcí, jméno a kvalifikace v textu i v JSON-LD.
+- Hledanost oborových frází je v Česku a na Slovensku malá (našeptávač Googlu k nim nic nenabízí). Kliniky radioVET najdou hlavně podle jména, přes odkazy a přes odpovědi AI asistentů. Pomůže proto profil Google Firmy, odkazy ze Zobrazkáru, LinkedInu a od partnerů a samostatné podstránky (níž).
 - Žádné cookies, žádná analytika, písma hostovaná lokálně: web nedělá žádný požadavek mimo vlastní doménu, cookie lišta proto není potřeba.
 
 Lighthouse (15. 10. 2026, lokální server bez komprese): mobil výkon 93, přístupnost 100, osvědčené postupy 100, SEO 100; počítač 99, 100, 100, 100.
@@ -72,7 +74,8 @@ Dnešní web běží na Nuxtu a má podstránky `/teleradiologie/`, `/workshop/`
 - **Skript jen v prohlížeči:** obsah `<script>` spustit v `onMounted` (nebo obalit `<ClientOnly>`), při odchodu ze stránky zrušit posluchače `resize`, `scroll`, `mousemove` a smyčku `requestAnimationFrame`.
 - **Hlavičku přes `useHead`:** title, popis, kanonická adresa, Open Graph a JSON-LD z `index.html`.
 - **GDPR a obchodní podmínky zůstávají,** patička na ně odkazuje.
-- **Staré adresy přesměrovat,** pokud podstránky zrušíte. Návrh do `nuxt.config`:
+- **Podstránky `/teleradiologie/` a `/workshop/` doporučujeme ponechat a rozšířit,** ne zrušit: každá odpovídá jinému hledání (popis snímků proti vzdělávání) a jedna stránka obě nepokryje. Úvodní stránka na ně může odkazovat ze sekce Služby.
+- **Přesměrovat jen adresy, které opravdu zaniknou.** Návrh do `nuxt.config`:
 
 ```ts
 routeRules: {
@@ -88,7 +91,7 @@ routeRules: {
 | Riziko | Co je hotové | Co zbývá na vás |
 |---|---|---|
 | Web po spuštění nikdo nenajde | bez `noindex`, kanonická adresa, sitemap, robots, JSON-LD | odeslat sitemap do Google Search Console a Bing Webmaster Tools |
-| Staré odkazy skončí na 404 | seznam adres a přesměrování výš | nastavit `routeRules` |
+| Staré odkazy skončí na 404 | seznam adres a přesměrování výš | podstránky ponechat, zaniklé adresy přesměrovat přes `routeRules` |
 | Zmizí GDPR a obchodní podmínky | odkazy v patičce na stávající stránky | stránky ponechat |
 | Pomalé načtení na mobilu | WebP, písma ořezaná na 37 kB, přednačtený hlavní obrázek, CLS 0 | na hostingu zapnout kompresi (brotli nebo gzip) a dlouhou cache pro `img/` a `fonts/` |
 | Safari a iOS | masky s prefixem `-webkit-`, žádné experimentální API | jednou projít v Safari a na iPhonu (testovali jsme v Chrome na 1440, 1024, 768 a 375 px) |
