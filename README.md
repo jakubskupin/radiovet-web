@@ -27,15 +27,15 @@ Sekce: navigace, hero (`#top`), pás údajů, Jak to funguje (`#jak`), Služby (
 
 ## Hero: jak efekt funguje
 
-**Scéna.** Hero je pevná scéna 1440 × 800 px (`#stage`). Všechny vrstvy mají souřadnice v tomhle prostoru a funkce `heroFit()` celou scénu škáluje na šířku okna (`transform: scale`). Text vedle scény (`.hero-txt`) používá stejné měřítko přes proměnnou `--s`. Pod 760 px se text přesune nad scénu a zobrazí se levých 880 px scény (Laco).
+**Scéna.** Snímek psa je v původní orientaci, hlavou vlevo, jak se boční rentgen čte. Hero je pevná scéna 1440 × 800 px (`#stage`). Všechny vrstvy mají souřadnice v tomhle prostoru a funkce `heroFit()` celou scénu škáluje na šířku okna (`transform: scale`). Text vedle scény (`.hero-txt`) používá stejné měřítko přes proměnnou `--s`. Pod 760 px se text přesune nad scénu a zobrazí se pravých 880 px scény (Laco).
 
-**Vrstvy (odspodu):** `st-film` Lacův rentgen psa ztlumený na 36 % → `st-shade` tmavý přechod pod textem vpravo → `st-laco` Laco (PNG s průhledností) → `st-shade2` přechod dole → `lens` hledáček → nález, štítky a jméno.
+**Vrstvy (odspodu):** `st-film` Lacův rentgen psa ztlumený na 36 % → `st-shade` tmavý přechod pod textem vlevo → `st-laco` Laco (PNG s průhledností) → `st-shade2` přechod dole → `lens` hledáček → nález, štítky a jméno.
 
 **Hledáček.** Rámeček 240 × 240 px jede za kurzorem s doběhem (lineární interpolace 0,25 na snímek v `tick()`). Uvnitř je kopie celé scény (`.lens-in`) posunutá o zápornou polohu hledáčku, takže hledáček funguje jako průhled. Na dotykových zařízeních jede za prstem, po zvednutí prstu zmizí. Blíž než 70 px k tlačítkům CTA se schová, aby nepřekážel kliknutí.
 
 **Nález.** Když je hledáček v kruhu o poloměru 120 px kolem bodu (700, 598), rozsvítí se oranžový rámeček `#find`, štítek „Volná tekutina“ a popisek Lacovými slovy.
 
-**Laco.** Nad hlavou a rameny (elipsa kolem bodu 320, 245 a obdélník ramen ve funkci `onLaco`) se hledáček přichytí na 400 × 450 px se středem (320, 285), pozadí ztmavne (`st-blk`) a ukáže se rentgen Laca (`laco-rentgen.jpg`). Rentgen ořezávají dvě masky přes sebe (`mask-composite: intersect`): obrys postavy `laco-maska.png` a svislý přechod, který ho od klíčních kostí dolů rozplyne do barevné fotky. Při druhém najetí lebka jednou mrkne (`laco-rentgen-mrk2.png`, 60 ms náběh, 110 ms drží, 90 ms zpět).
+**Laco.** Nad hlavou a rameny (elipsa kolem bodu 1120, 245 a obdélník ramen ve funkci `onLaco`) se hledáček přichytí na 400 × 450 px se středem (1120, 285), pozadí ztmavne (`st-blk`) a ukáže se rentgen Laca (`laco-rentgen.jpg`). Rentgen ořezávají dvě masky přes sebe (`mask-composite: intersect`): obrys postavy `laco-maska.png` a svislý přechod, který ho od klíčních kostí dolů rozplyne do barevné fotky. Při druhém najetí lebka jednou mrkne (`laco-rentgen-mrk2.png`, 60 ms náběh, 110 ms drží, 90 ms zpět).
 
 **Výměna snímku psa.** Snímek je `img/hero/snimek.jpg` (1600 × 1084, zobrazený přes celou scénu). Při výměně za jiný posuňte i nález: bod v `onFind`, `left` a `top` u `.st-find`, `.st-cap` a štítku `#tagFind`.
 
