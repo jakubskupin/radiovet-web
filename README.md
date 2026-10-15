@@ -134,7 +134,3 @@ Rentgeny zvířat používáme jen Lacovy skutečné. Vygenerovaná anatomie dě
 
 - Bebas Neue (nadpisy) a Montserrat 400, 500, 600, 700 (text), obě pod licencí SIL Open Font License, hostované lokálně a ořezané na latinku s češtinou a slovenštinou.
 - Oranžová `#DF6A2F`, tmavá `#050505`, text `#F4F4F2`, šedá `#B4AFAB`, světle šedá `#E6E6E6`. Proměnné jsou v `:root` na začátku stylů.
-
-## Kontakt
-
-Návrh připravil Jakub Skupin (https://jakubskupin.cz). Cokoli budete potřebovat, rádi doděláme, pište přes Laca.
