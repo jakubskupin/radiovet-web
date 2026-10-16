@@ -102,12 +102,12 @@ routeRules: {
 | Přístupnost | `<main>`, popis hero pro čtečky, alt texty, větší cíle dotyku, `prefers-reduced-motion`; Lighthouse 100 | nic |
 | Licence obrázků a písem | tabulka zdrojů níž, písma OFL | ověřit pozadí sekce Otázky |
 | Tlačítka vedou jen na kotvy | seznam cílů níž | doplnit odkazy |
+| Na web se vrátí telefonní číslo | číslo není na stránce, v JSON-LD (`telephone`) ani v `llms.txt`, kontakt začíná e-mailem | nepřidávat ho ani do hlavičky a patičky Nuxtu: Laco nechce hovory od majitelů zvířat, kliniky číslo mají v patě každé zprávy |
 
 ## Před spuštěním doplnit
 
 Šedé texty (třída `.ph`) a hranaté závorky jsou místa, která doplní Laco:
 
-- telefon (hero, závěr, patička)
 - lhůta popisu, běžná a akutní (hero, Služby, Otázky, `llms.txt`)
 - cena od a co v ní je (hero, Služby, Otázky, `llms.txt`)
 - zástup a dovolená (Otázky)
